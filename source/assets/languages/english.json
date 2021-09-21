@@ -1,0 +1,13 @@
+{
+    "hello": "Hello React Native!",
+    "app_name" : "Test App",
+    "_____________":"Login",
+    "welcome_message":"Welcome \n To the Bubble",
+    "provide_number":"Provide Us your Mobile Number",
+    "new_user":"New to Bubble?",
+    "signup":"SignUp",
+    "enter_otp":"Enter the OTP recieved",
+    "on_mobile":"on your mobile number",
+    "number":"9999999999",
+    "otp_empty_alert":"Enter the OTP"
+}

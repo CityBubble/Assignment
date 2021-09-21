@@ -1,0 +1,10 @@
+{
+    "mode": "dark",
+    "background": "#fff",
+    "background_secondary_color": "#000",
+    "button_color":"#cf0268",
+    "text_color":"#000",
+    "text_signup_color":"#cf0268",
+    "alert_color":"#FF000"
+
+}
