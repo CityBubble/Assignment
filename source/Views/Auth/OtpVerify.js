@@ -16,18 +16,18 @@ class OtpVerify extends Component {
       isloadingVerify: false
     };
   }
-  otpVerifyCOntroller() {
-    let { otp, user_id } = this.state
-    let { theme, language, } = this.props
+  // otpVerifyCOntroller() {
+  //   let { otp, user_id } = this.state
+  //   let { theme, language, } = this.props
 
-    if (otp == "") {
-      helper.showToast(language.otp_empty_alert, theme.alert_color)
-      return
-    }
+  //   if (otp == "") {
+  //     helper.showToast(language.otp_empty_alert, theme.alert_color)
+  //     return
+  //   }
 
-    // this.setState({ isloadingVerify: true })
+  //   // this.setState({ isloadingVerify: true })
 
-  }
+  // }
 
 
   render() {
@@ -53,6 +53,7 @@ class OtpVerify extends Component {
               marginLeft: '25%'
             }}
           ></Image>
+
         </View>
         <TouchableOpacity 
         onPress={()=> this.props.navigation.goBack()}
