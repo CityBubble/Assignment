@@ -10,6 +10,7 @@ import OtpVerify from './source/Views/Auth/OtpVerify';
 import Signup from './source/Views/Auth/Signup';
 import Bio from './source/Views/Auth/Bio';
 import OtpNotVerify from './source/Views/Auth/OtpNotVerify';
+import HomeScreen from './source/Views/HomeScreen';
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -27,7 +28,9 @@ export default class App extends Component {
             <Stack.Screen name={'OtpVerify'} component={OtpVerify} /> 
             <Stack.Screen name={'Signup'} component={Signup} />
             <Stack.Screen name={'Bio'} component={Bio} />
+            <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
 
+            
             <Stack.Screen name={'OtpNotVerify'} component={OtpNotVerify} />
 
           </Stack.Navigator>

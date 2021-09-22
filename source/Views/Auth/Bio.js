@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Picker ,Button} from 'react-native';
+import { View, Text, TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
+import DatePicker from 'react-native-datepicker'
 import { headings } from '../../utils/Styles';
 import { connect } from 'react-redux'
 import ReducersProps from '../../../source/data/local/reducers/ReducersProps'
 import ReducersActions from '../../../source/data/local/reducers/ReducersActions'
 import Helper from '../../utils/Helper'
-import DateTimePicker from '@react-native-community/datetimepicker';
+import Feather from 'react-native-vector-icons/Feather';
+
 const helper = new Helper()
 
 
@@ -17,29 +19,25 @@ class Bio extends Component {
         this.state = {
             name: '',
             dateOfBirth: '',
-            datePickerShow: true,
-             mode:'', 
-             setMode:'',
-             show:false, 
-             setShow:false
+            date: "",
+            mobileNumber: ''
+
 
         };
     }
-     onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        this.state.setShow(Platform.OS === 'ios');
-        this.state.setDate(currentDate);
-      };
-      
-      
-      showDatepicker = () => {
-        this.state.showMode('date');
-      };
 
     render() {
         let { theme, language } = this.props
         return (
             <View>
+                <TouchableOpacity 
+        onPress={()=> this.props.navigation.goBack()}
+        style={{
+            marginTop:'5%',
+            marginLeft: '5%',
+            position:'absolute'
+          }}>
+            <Feather name="chevron-left" size={30} ></Feather></TouchableOpacity>
                 <Text style={{
                     marginTop: '8%',
                     ...headings.h3,
@@ -89,24 +87,76 @@ class Bio extends Component {
                     textAlign: 'center',
                     color: theme.text_color
                 }}>DOB</Text>
+                <DatePicker
+                    style={{
+                        width: '80%',
+                        marginLeft: '5%',
+                        borderRadius: 15,
+                        // borderWidth:1
+                    }}
+                    date={this.state.date}
+                    mode="date"
+                    placeholder="select date"
+                    format="YYYY-MM-DD"
+                    confirmBtnText="Confirm"
+                    cancelBtnText="Cancel"
+                    customStyles={{
+                        dateIcon: {
+                            position: 'absolute',
+                            left: '80%',
+                            top: 4,
 
-                <View>
-                    <View>
-                        <Button onPress={this.showDatepicker} title="Show date picker!" />
-                    </View>
-                   
-                    {this.state.show && (
-                        <DateTimePicker
-                            testID="dateTimePicker"
-                            value={date}
-                            mode={mode}
-                            is24Hour={true}
-                            display="default"
-                            onChange={onChange}
-                        />
-                    )}
-                </View>
+                        },
+                        dateInput: {
+                            marginLeft: 36
+                        }
+                        // ... You can check the source to find the other keys.
+                    }}
+                    onDateChange={(date) => { this.setState({ date: date }) }}
+                />
 
+                <Text style={{
+                    marginTop: '8%',
+                    ...headings.h3,
+                    textAlign: 'center',
+                    color: theme.text_color
+                }}>Mobile Number</Text>
+
+
+                <TextInput
+                    onChangeText={(mobileNumber) => this.setState({
+                        mobileNumber: mobileNumber
+                    })}
+                    style={{
+                        marginTop: '5%',
+                        borderWidth: 0.75,
+                        borderRadius: 15,
+                        marginHorizontal: "12%",
+                        backgroundColor: theme.background,
+                        padding: '3%'
+                    }}
+                    keyboardType={'phone-pad'}
+                ></TextInput>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("OtpVerify")}
+                    style={{
+                        backgroundColor: theme.button_color,
+                        borderRadius: 25,
+                        borderWidth: 1,
+                        borderColor: theme.button_color,
+                        height: 50,
+                        justifyContent: 'center',
+                        marginHorizontal: '16%',
+                        marginTop: '15%',
+                        elevation: 15
+                    }}>
+                    <Text style={{
+                        ...headings.h2,
+                        textAlign: 'center',
+
+                    }}>Next</Text>
+
+                </TouchableOpacity>
             </View>
         );
     }
