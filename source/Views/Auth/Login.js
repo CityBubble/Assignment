@@ -12,6 +12,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            phoneNumber:''
 
         };
     }
@@ -37,7 +38,12 @@ class Login extends Component {
                     textAlign: 'center',
                     marginTop: "10%",
                 }}>{language.provide_number}</Text>
-                <TextInput style={{
+                <TextInput 
+                placeholder={'99999999999'}
+                onChangeText={(phoneNumber)=>this.setState({
+                    phoneNumber:phoneNumber
+                })}
+                    style={{
                     marginTop: '10%',
                     borderWidth: 0.5,
                     borderRadius: 15,
@@ -45,7 +51,7 @@ class Login extends Component {
                     backgroundColor: theme.background,
                     padding: '3%'
                 }}
-                    keyboardType={'number-pad'}
+                    keyboardType={'phone-pad'}
                 ></TextInput>
 
 
@@ -82,7 +88,9 @@ class Login extends Component {
                         ...headings.h3,
                         color:theme.text_color
                     }}>{language.new_user}</Text>
-                    <Text style={{
+                    <Text 
+                    onPress={()=>this.props.navigation.navigate('Signup')}
+                    style={{
                         ...headings.h3,
                         color:theme.text_signup_color
                     }}>{language.signup}</Text>

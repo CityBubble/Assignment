@@ -11,7 +11,8 @@ class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedName: '--Select--'
+            selectedName: '',
+            phoneNumber:""
         };
     }
 
@@ -70,7 +71,12 @@ class Signup extends Component {
                 }}>{language.provide_us}</Text>
 
 
-                <TextInput style={{
+                <TextInput
+                   placeholder={'999999999'}
+                   onChangeText={(phoneNumber)=>this.setState({
+                    phoneNumber:phoneNumber
+                   })}
+                   style={{
                     marginTop: '8%',
                     borderWidth: 0.5,
                     borderRadius: 15,
@@ -78,7 +84,7 @@ class Signup extends Component {
                     backgroundColor: theme.background,
                     padding: '3%'
                 }}
-                // keyboardType={'number-pad'}
+                keyboardType={'phone-pad'}
                 ></TextInput>
 
                 <TouchableOpacity
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
 
         borderWidth: 1,
         borderRadius: 20,
-        height: 60,
+        height: 50,
         marginHorizontal: '10%'
     },
 

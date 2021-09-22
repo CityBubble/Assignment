@@ -9,16 +9,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const helper = new Helper()
 
 
-// const onChange = (event, selectedDate) => {
-//   const currentDate = selectedDate || date;
-//   setShow(Platform.OS === 'ios');
-//   setDate(currentDate);
-// };
 
-
-// const showDatepicker = () => {
-//     showMode('date');
-// };
 
 class Bio extends Component {
     constructor(props) {
@@ -27,9 +18,6 @@ class Bio extends Component {
             name: '',
             dateOfBirth: '',
             datePickerShow: true,
-            date:new Date(1598051730000),
-             setDate:new Date(1598051730000),
-
              mode:'', 
              setMode:'',
              show:false, 
@@ -142,3 +130,7 @@ const styles = StyleSheet.create({
 
     }
 })
+
+
+
+

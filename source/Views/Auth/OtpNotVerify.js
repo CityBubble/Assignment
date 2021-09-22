@@ -8,7 +8,7 @@ import ReducersActions from '../../../source/data/local/reducers/ReducersActions
 import Helper from '../../utils/Helper'
 import Feather from 'react-native-vector-icons/Feather';
 const helper = new Helper()
-class OtpVerify extends Component {
+class OtpNotVerify extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +24,8 @@ class OtpVerify extends Component {
       return
     }
     if (otp != "123456" ) {
-      this.props.navigation.navigate('OtpNotVerify')
-      // helper.showToast(language.otp_empty_alert, theme.alert_color)
-      // return
+      helper.showToast(language.otp_empty_alert, theme.alert_color)
+      return
     }
 
     // this.setState({ isloadingVerify: true })
@@ -39,7 +38,8 @@ class OtpVerify extends Component {
     return (
       <View style={{
         backgroundColor: '#fff',
-        flex: 1
+        // flex: 1
+        height:'100%'
       }}>
          
         <View style={{
@@ -67,10 +67,8 @@ class OtpVerify extends Component {
             position:'absolute'
           }}>
             <Feather name="chevron-left" size={30} ></Feather></TouchableOpacity>
-        <Text style={{ ...headings.h2, color: theme.text_color, marginTop: "20%", textAlign: "center", fontWeight: "bold", }}>{language.enter_otp}</Text>
-        <Text style={{ flexDirection: "row", width: "100%", marginTop: "1%", textAlign: "center" }}>
-          <Text style={{ color: theme.text_color, }}>{language.on_mobile}</Text>
-          <Text style={{ color: theme.text_signup_color, }}>{language.number}</Text>
+        <Text style={{ ...headings.h2, color: theme.text_color, marginTop: "20%", textAlign: "center", fontWeight: "bold", }}>{language.invalid_otp}</Text>
+        <Text style={{...headings.h3, color: theme.text_color, marginTop: "2%",fontSize:16, textAlign: "center",}}>{language.check_messgaes}
 
         </Text>
         <OTPInputView
@@ -85,7 +83,7 @@ class OtpVerify extends Component {
             fontSize: 20,
             marginHorizontal: 10,
             borderWidth: 1,
-            borderColor: "black",
+            borderColor: theme.button_color,
             borderRadius: 10
           }}
           codeInputHighlightStyle={{
@@ -101,31 +99,12 @@ class OtpVerify extends Component {
           })}
         />
 
-        <TouchableOpacity
-          onPress={() => this.otpVerifyCOntroller()}
-          style={{
-            backgroundColor: theme.button_color,
-            borderRadius: 20,
-            borderWidth: 1,
-            borderColor: theme.button_color,
-            height: 50,
-            justifyContent: 'center',
-            marginHorizontal: '20%',
-            marginTop: '5%',
-            elevation: 15
-          }}>
-          <Text style={{
-            ...headings.h2,
-            textAlign: 'center',
-
-          }}>Verify</Text>
-
-        </TouchableOpacity>
+        
 
 
         <Text style={{ flexDirection: "row", width: "100%", marginTop: "5%", textAlign: "center" }}>
-          <Text>Didn't get OTP?</Text>
-          <Text style={{ fontWeight: "900" }} onPress={() => this.props.navigation.navigate("")}> Resend OTP</Text>
+       
+          <Text style={{ fontWeight: "900" }} onPress={() => this.props.navigation.navigate("OtpVerify")}> Resend OTP</Text>
         </Text>
 
         <View style={{
@@ -136,4 +115,4 @@ class OtpVerify extends Component {
     );
   }
 }
-export default connect(ReducersProps, ReducersActions)(OtpVerify)
+export default connect(ReducersProps, ReducersActions)(OtpNotVerify)
