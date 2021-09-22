@@ -12,6 +12,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
         };
     }
 
@@ -102,3 +103,4 @@ class Login extends Component {
     }
 }
 export default connect(ReducersProps, ReducersActions)(Login)
+

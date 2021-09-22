@@ -26,6 +26,8 @@ import TestingScreen from './source/Views/TestingScreen'
 import SplashScreen from './source/Views/SplashScreen';
 import Login from './source/Views/Auth/Login';
 import OtpVerify from './source/Views/Auth/OtpVerify';
+import Signup from './source/Views/Auth/Signup';
+import Bio from './source/Views/Auth/Bio';
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -39,9 +41,11 @@ export default class App extends Component {
 
             {/* Initial Screens */}
             {/* <Stack.Screen name={'SplashScreen'} component={SplashScreen} /> */}
-            <Stack.Screen name={'Login'} component={Login} />
-            <Stack.Screen name={'OtpVerify'} component={OtpVerify} />
-            
+            {/* <Stack.Screen name={'Login'} component={Login} />
+            <Stack.Screen name={'OtpVerify'} component={OtpVerify} /> */}
+            <Stack.Screen name={'Signup'} component={Signup} />
+            <Stack.Screen name={'Bio'} component={Bio} />
+
             <Stack.Screen name={'TestingScreen'} component={TestingScreen} />
 
           </Stack.Navigator>
