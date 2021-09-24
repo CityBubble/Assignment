@@ -11,6 +11,7 @@ import Signup from './source/Views/Auth/Signup';
 import Bio from './source/Views/Auth/Bio';
 import OtpNotVerify from './source/Views/Auth/OtpNotVerify';
 import HomeScreen from './source/Views/HomeScreen';
+import TestScreen from './source/Views/TestScreen';
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -23,16 +24,16 @@ export default class App extends Component {
           <Stack.Navigator headerMode={'none'}>
 
             {/* Initial Screens */}
+            {/* <Stack.Screen name={'TestScreen'} component={TestScreen} /> */}
+
            <Stack.Screen name={'SplashScreen'} component={SplashScreen} /> 
             <Stack.Screen name={'Login'} component={Login} />
             <Stack.Screen name={'OtpVerify'} component={OtpVerify} /> 
             <Stack.Screen name={'Signup'} component={Signup} />
             <Stack.Screen name={'Bio'} component={Bio} />
             <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
-
-            
             <Stack.Screen name={'OtpNotVerify'} component={OtpNotVerify} />
-
+            
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

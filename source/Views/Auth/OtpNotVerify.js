@@ -19,11 +19,11 @@ class OtpNotVerify extends Component {
   otpVerifyCOntroller() {
     let { otp, user_id } = this.state
     let { theme, language, } = this.props
-    if (otp == "" ) {
+    if (otp == "") {
       helper.showToast(language.correct_otp, theme.alert_color)
       return
     }
-    if (otp != "123456" ) {
+    if (otp != "123456") {
       helper.showToast(language.otp_empty_alert, theme.alert_color)
       return
     }
@@ -39,36 +39,36 @@ class OtpNotVerify extends Component {
       <View style={{
         backgroundColor: '#fff',
         // flex: 1
-        height:'100%'
+        height: '100%'
       }}>
-         
+
         <View style={{
           width: '100%',
-          height: 180,
+          height: 120,
 
         }}>
-         
-          
+
+
           <Image source={require('../../assets/images/bubbles.png')}
             style={{
               width: '100%',
-              height: '130%',
+              height: '100%',
               justifyContent: 'flex-end',
               marginLeft: '30%'
             }}
           ></Image>
 
         </View>
-        <TouchableOpacity 
-        onPress={()=> this.props.navigation.goBack()}
-        style={{
-            marginTop:'5%',
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack()}
+          style={{
+            marginTop: '5%',
             marginLeft: '5%',
-            position:'absolute'
+            position: 'absolute'
           }}>
-            <Feather name="chevron-left" size={30} ></Feather></TouchableOpacity>
-        <Text style={{ ...headings.h2, color: theme.text_color, marginTop: "20%", textAlign: "center", fontWeight: "bold", }}>{language.invalid_otp}</Text>
-        <Text style={{...headings.h3, color: theme.text_color, marginTop: "2%",fontSize:16, textAlign: "center",}}>{language.check_messgaes}
+          <Feather name="chevron-left" size={30} ></Feather></TouchableOpacity>
+        <Text style={{ ...headings.h2, color: theme.text_color, marginTop: "20%", textAlign: "center", fontSize: 20 }}>{language.invalid_otp}</Text>
+        <Text style={{ ...headings.h3, color: theme.text_color, marginTop: "2%", fontSize: 14, textAlign: "center", marginHorizontal: '2%' }}>{language.check_messgaes}
 
         </Text>
         <OTPInputView
@@ -99,18 +99,40 @@ class OtpNotVerify extends Component {
           })}
         />
 
-        
+
 
 
         <Text style={{ flexDirection: "row", width: "100%", marginTop: "5%", textAlign: "center" }}>
-       
+
           <Text style={{ fontWeight: "900" }} onPress={() => this.props.navigation.navigate("OtpVerify")}> Resend OTP</Text>
         </Text>
 
         <View style={{
-          marginTop: "3%", height: "0.2%", width: "50%", backgroundColor: theme.background_secondary_color
+          marginTop: "3%", height: "0.2%", width: "30%", backgroundColor: theme.background_secondary_color
           , alignSelf: "center"
         }} />
+
+
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('HomeScreen')}
+          style={{
+            backgroundColor: theme.button_color,
+            borderRadius: 20,
+            borderWidth: 1,
+            borderColor: theme.button_color,
+            height: 50,
+            justifyContent: 'center',
+            marginHorizontal: '20%',
+            marginTop: '5%',
+            elevation: 15
+          }}>
+          <Text style={{
+            ...headings.h2,
+            textAlign: 'center',
+
+          }}>Verify</Text>
+
+        </TouchableOpacity>
       </View>
     );
   }

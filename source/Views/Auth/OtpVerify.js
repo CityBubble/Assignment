@@ -45,12 +45,14 @@ class OtpVerify extends Component {
     return (
       <View style={{
         backgroundColor: '#fff',
-        flex: 1
+         flex: 1
       }}>
          
         <View style={{
           width: '100%',
-          height: 180,
+          // height: 100,
+           height:120,
+          // backgroundColor:'yellow'
 
         }}>
          
@@ -58,7 +60,7 @@ class OtpVerify extends Component {
           <Image source={require('../../assets/images/bubbles.png')}
             style={{
               width: '100%',
-              height: '130%',
+              height:'100%',
               justifyContent: 'flex-end',
               marginLeft: '30%'
             }}
@@ -73,6 +75,10 @@ class OtpVerify extends Component {
             position:'absolute'
           }}>
             <Feather name="chevron-left" size={30} ></Feather></TouchableOpacity>
+            <View style={{
+              // backgroundColor:'plum',
+              height:"70%"
+            }}>
         <Text style={{ ...headings.h2, color: theme.text_color, marginTop: "20%", textAlign: "center", fontWeight: "bold", }}>{language.enter_otp}</Text>
         <Text style={{ flexDirection: "row", width: "100%", marginTop: "1%", textAlign: "center" }}>
           <Text style={{ color: theme.text_color, }}>{language.on_mobile}</Text>
@@ -138,6 +144,7 @@ class OtpVerify extends Component {
           marginTop: "3%", height: "0.2%", width: "50%", backgroundColor: theme.background_secondary_color
           , alignSelf: "center"
         }} />
+        </View>
       </View>
     );
   }

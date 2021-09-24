@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Picker, StyleSheet, TextInput,TouchableOpacity } from 'react-native';
+import { View, Text, Image, Picker, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { headings } from '../../utils/Styles';
 import { connect } from 'react-redux'
 import ReducersProps from '../../../source/data/local/reducers/ReducersProps'
@@ -12,14 +12,17 @@ class Signup extends Component {
         super(props);
         this.state = {
             selectedName: '',
-            phoneNumber:""
+            phoneNumber: ""
         };
     }
 
     render() {
         let { theme, language } = this.props
         return (
-            <View>
+            <View style={{
+                backgroundColor: '#fff',
+                height: '100%'
+            }}>
                 <Image
                     style={{
                         width: 150,
@@ -48,12 +51,11 @@ class Signup extends Component {
                         <Picker.Item label="Delhi" value="dl" />
                     </Picker>
                 </View>
+
                 <View style={{
-                    borderBottomWidth: 1,
-                    borderBottomColor: 'gray',
-                    marginTop: '5%',
-                    marginHorizontal: '4%'
-                }}></View>
+                    marginTop: "7%", height: "0.4%", width: "90%", backgroundColor: 'grey'
+                    , alignSelf: "center"
+                }} />
 
 
                 <Text style={{
@@ -65,26 +67,29 @@ class Signup extends Component {
                 }}>{language.any_referall}</Text>
                 <Text style={{
                     ...headings.h3,
-                    fontSize: 16,
+                    fontSize: 15,
                     color: theme.text_color,
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    // marginTop: 0,
                 }}>{language.provide_us}</Text>
 
 
                 <TextInput
-                   placeholder={'999999999'}
-                   onChangeText={(phoneNumber)=>this.setState({
-                    phoneNumber:phoneNumber
-                   })}
-                   style={{
-                    marginTop: '8%',
-                    borderWidth: 0.5,
-                    borderRadius: 15,
-                    marginHorizontal: "12%",
-                    backgroundColor: theme.background,
-                    padding: '3%'
-                }}
-                keyboardType={'phone-pad'}
+                    placeholder={'999999999'}
+                    onChangeText={(phoneNumber) => this.setState({
+                        phoneNumber: phoneNumber
+                    })}
+                    style={{
+                        marginTop: '8%',
+                        borderWidth: 1,
+                        borderColor: 'grey',
+                        borderRadius: 15,
+                        marginHorizontal: "12%",
+                        backgroundColor: theme.background,
+                        padding: '3%',
+                        elevation:12
+                    }}
+                    keyboardType={'phone-pad'}
                 ></TextInput>
 
                 <TouchableOpacity
@@ -107,7 +112,7 @@ class Signup extends Component {
                     }}>Next</Text>
 
                 </TouchableOpacity>
-            </View>
+            </View >
         );
     }
 }
@@ -118,13 +123,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 20,
         height: 50,
-        marginHorizontal: '10%'
+        marginHorizontal: '10%',
+        borderColor: 'grey',
+        // elevation:20
     },
 
     pickerStyle: {
         // height: 150,
-        width: "100%",
-        color: '#344953',
+        // width: "100%",
+        color: '#cf0268',
         justifyContent: 'center',
 
     }
