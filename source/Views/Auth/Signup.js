@@ -102,7 +102,7 @@ class Signup extends Component {
                         height: 50,
                         justifyContent: 'center',
                         marginHorizontal: '16%',
-                        marginTop: '30%',
+                        marginTop: '21%',
                         elevation: 15
                     }}>
                     <Text style={{

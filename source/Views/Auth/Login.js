@@ -12,14 +12,14 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            phoneNumber:''
+            phoneNumber: ''
 
         };
     }
-    loginController(){
-        let{phoneNumber}=this.state
-        let{language,theme}=this.props
-        if(phoneNumber == ''){
+    loginController() {
+        let { phoneNumber } = this.state
+        let { language, theme } = this.props
+        if (phoneNumber == '') {
             helper.showToast(language.login_error, theme.alert_color)
             return
         }
@@ -29,57 +29,57 @@ class Login extends Component {
         let { theme, language } = this.props
         return (
             <View style={{
-                backgroundColor:'#fff',
-                height:'100%'
+                backgroundColor: '#fff',
+                height: '100%'
 
             }}>
                 <Text style={{
                     ...headings.h1,
-                    marginTop: '25%',
+                    marginTop: '22%',
                     textAlign: 'center',
                     fontSize: 22,
-                    color:theme.text_color
+                    color: theme.text_color
 
                 }}>{language.welcome_message}</Text>
                 <Text style={{
                     ...headings.h2,
-                    color:theme.text_color,
+                    color: theme.text_color,
                     fontSize: 18,
                     textAlign: 'center',
                     marginTop: "15%",
                 }}>{language.provide_number}</Text>
-                <TextInput 
-                placeholder={'99999999999'}
-                onChangeText={(phoneNumber)=>this.setState({
-                    phoneNumber:phoneNumber
-                })}
+                <TextInput
+                    placeholder={'99999999999'}
+                    onChangeText={(phoneNumber) => this.setState({
+                        phoneNumber: phoneNumber
+                    })}
                     style={{
-                    marginTop: '3%',
-                    borderWidth: 1,
-                    borderColor: 'grey',
-                    borderRadius: 15,
-                    marginHorizontal: "12%",
-                    backgroundColor: theme.background,
-                    padding: '3%',
-                    elevation:10
-                }}
+                        marginTop: '3%',
+                        borderWidth: 1,
+                        borderColor: 'grey',
+                        borderRadius: 15,
+                        marginHorizontal: "12%",
+                        backgroundColor: theme.background,
+                        padding: '3%',
+                        elevation: 10
+                    }}
                     keyboardType={'phone-pad'}
                 ></TextInput>
 
 
                 <TouchableOpacity
-                onPress={()=>this.loginController()}
-                style={{
-                    backgroundColor: theme.button_color,
-                    borderRadius: 20,
-                    borderWidth: 1,
-                    borderColor: theme.button_color,
-                    height: 50,
-                    justifyContent: 'center',
-                    marginHorizontal: '18%',
-                    marginTop: '10%',
-                    elevation:15
-                }}>
+                    onPress={() => this.loginController()}
+                    style={{
+                        backgroundColor: theme.button_color,
+                        borderRadius: 20,
+                        borderWidth: 1,
+                        borderColor: theme.button_color,
+                        height: 50,
+                        justifyContent: 'center',
+                        marginHorizontal: '18%',
+                        marginTop: '10%',
+                        elevation: 15
+                    }}>
                     <Text style={{
                         ...headings.h2,
                         textAlign: 'center',
@@ -88,36 +88,40 @@ class Login extends Component {
 
                 </TouchableOpacity>
                 <View
-                style={{
-                    flexDirection:'row',
-                    marginTop: "3%",
-                    // marginLeft:'18%'
-                    marginHorizontal:'20%'
+                    style={{
+                        flexDirection: 'row',
+                        marginTop: "3%",
+                        // marginLeft:'18%'
+                        marginHorizontal: '20%'
 
-                }}
+                    }}
                 >
                     <Text style={{
                         ...headings.h3,
-                        color:theme.text_color
+                        color: theme.text_color
                     }}>{language.new_user}</Text>
-                    <Text 
-                    onPress={()=>this.props.navigation.navigate('Signup')}
-                    style={{
-                        ...headings.h3,
-                        color:theme.text_signup_color
-                    }}>{language.signup}</Text>
+                    <Text
+                        onPress={() => this.props.navigation.navigate('Signup')}
+                        style={{
+                            ...headings.h3,
+                            color: theme.text_signup_color
+                        }}>{language.signup}</Text>
                 </View>
+             <View style={{
+                //  backgroundColor:'plum',
+                 height:300
+             }}>
+                    <Image
+                        style={{
+                            width: '50%',
+                            height: '35%',
+                            alignSelf: 'center',
+                            marginTop: '10%'
 
-                <Image
-                    style={{
-                        width: '60%',
-                        height: '20%',
-                        alignSelf: 'center',
-                        marginTop:'25%'
-
-                    }}
-                    source={require('../../assets/images/login_screen.png')}
-                ></Image>
+                        }}
+                        source={require('../../assets/images/login_screen.png')}
+                    ></Image>
+               </View>
             </View>
         );
     }
