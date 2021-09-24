@@ -16,16 +16,26 @@ class Login extends Component {
 
         };
     }
-
+    loginController(){
+        let{phoneNumber}=this.state
+        let{language,theme}=this.props
+        if(phoneNumber == ''){
+            helper.showToast(language.login_error, theme.alert_color)
+            return
+        }
+        this.props.navigation.navigate('OtpVerify')
+    }
     render() {
         let { theme, language } = this.props
         return (
             <View style={{
+                backgroundColor:'#fff',
+                height:'100%'
 
             }}>
                 <Text style={{
                     ...headings.h1,
-                    marginTop: '15%',
+                    marginTop: '25%',
                     textAlign: 'center',
                     fontSize: 22,
                     color:theme.text_color
@@ -36,7 +46,7 @@ class Login extends Component {
                     color:theme.text_color,
                     fontSize: 18,
                     textAlign: 'center',
-                    marginTop: "10%",
+                    marginTop: "15%",
                 }}>{language.provide_number}</Text>
                 <TextInput 
                 placeholder={'99999999999'}
@@ -44,27 +54,29 @@ class Login extends Component {
                     phoneNumber:phoneNumber
                 })}
                     style={{
-                    marginTop: '10%',
-                    borderWidth: 0.5,
+                    marginTop: '3%',
+                    borderWidth: 1,
+                    borderColor: 'grey',
                     borderRadius: 15,
                     marginHorizontal: "12%",
                     backgroundColor: theme.background,
-                    padding: '3%'
+                    padding: '3%',
+                    elevation:10
                 }}
                     keyboardType={'phone-pad'}
                 ></TextInput>
 
 
                 <TouchableOpacity
-                onPress={()=> this.props.navigation.navigate("OtpVerify")}
+                onPress={()=>this.loginController()}
                 style={{
                     backgroundColor: theme.button_color,
-                    borderRadius: 25,
+                    borderRadius: 20,
                     borderWidth: 1,
                     borderColor: theme.button_color,
                     height: 50,
                     justifyContent: 'center',
-                    marginHorizontal: '16%',
+                    marginHorizontal: '18%',
                     marginTop: '10%',
                     elevation:15
                 }}>
@@ -99,9 +111,9 @@ class Login extends Component {
                 <Image
                     style={{
                         width: '60%',
-                        height: '30%',
+                        height: '20%',
                         alignSelf: 'center',
-                        marginTop:'10%'
+                        marginTop:'25%'
 
                     }}
                     source={require('../../assets/images/login_screen.png')}

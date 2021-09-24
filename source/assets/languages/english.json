@@ -13,6 +13,7 @@
     "correct_otp":"Enter Otp",
     "invalid_otp":"Oops!! Its an invalid OTP",
     "check_messgaes":"Check Your messages for the OTP Recieved",
+    "login_error":"Kindly Enter Mobile Number",
     "________________":"SignUp",
     "tell_city":"Tell us your City",
     "any_referall":"Have any Referall?",
